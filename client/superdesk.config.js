@@ -58,7 +58,9 @@ module.exports = function() {
 
         search_cvs: [
             {id: 'topics', name:'Topics', field: 'subject', list: 'topics'},
-            {id: 'language', name:'Language', field: 'language', list: 'languages'}
+            {id: 'language', name:'Language', field: 'language', list: 'languages'},
+	    {id: 'status', name:'Status', field: 'subject', list: 'status'},
+	    {id: 'proofreading', name:'Proofreading status', field: 'subject', list: 'proofreading'}
         ],
 
         features: {
