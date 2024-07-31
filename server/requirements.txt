@@ -126,6 +126,8 @@ icalendar==5.0.12
     # via superdesk-planning
 idna==3.7
     # via requests
+isodate==0.6.1
+    # via python3-saml
 itsdangerous==1.1.0
     # via
     #   flask
@@ -154,6 +156,7 @@ lxml==5.2.2
     # via
     #   draftjs-exporter
     #   lxml-html-clean
+    #   python3-saml
     #   superdesk-core
     #   xmlsec
 lxml-html-clean==0.1.1
@@ -162,7 +165,7 @@ markupsafe==2.0.1
     # via
     #   jinja2
     #   superdesk-core
-mongolock==1.3.4
+mongolock @ git+https://github.com/superdesk/mongolock.git@v1
     # via superdesk-core
 oauth2client==4.1.3
     # via flask-oidc-ex
@@ -212,6 +215,8 @@ python-magic==0.4.27
     # via superdesk-core
 python-twitter==3.5
     # via superdesk-core
+python3-saml==1.16.0
+    # via -r requirements.in
 pytz==2024.1
     # via
     #   celery
@@ -251,6 +256,7 @@ simplejson==3.19.2
 six==1.16.0
     # via
     #   flask-oidc-ex
+    #   isodate
     #   oauth2client
     #   python-dateutil
 superdesk-core @ git+https://github.com/superdesk/superdesk-core.git@develop
@@ -290,4 +296,6 @@ werkzeug==1.0.1
 wrapt==1.16.0
     # via elastic-apm
 xmlsec==1.3.14
-    # via superdesk-core
+    # via
+    #   python3-saml
+    #   superdesk-core
