@@ -46,6 +46,8 @@ module.exports = function() {
                 'UPDATE': 'New instance',
 		'U': 'NI',
 		'C': 'U',
+		'Spike': 'Delete',
+		'Spiked': 'Deleted',
             }
         },
 
