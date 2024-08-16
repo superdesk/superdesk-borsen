@@ -40,10 +40,12 @@ module.exports = function() {
                 'ANPA CATEGORY': 'CATEGORY',
                 'multi-line quote': 'pullquote',
                 'Multi-line quote': 'Pullquote',
-                'Correction': 'Update',
-                'CORRECTION': 'Update',
+                'Correct': 'Update',
+                'CORRECT': 'Update',
                 'Update': 'New instance',
                 'UPDATE': 'New instance',
+		'U': 'NI',
+		'C': 'U',
             }
         },
 
