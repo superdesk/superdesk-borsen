@@ -47,7 +47,7 @@ module.exports = function() {
                 'Update': 'Full update',
                 'UPDATE': 'Full update',
                 'U': 'FU',
-                'C': 'U',
+                'C': 'Update',
                 'Spike': 'Delete',
                 'Spike item': 'Delete item',
                 'Spiked': 'Deleted',
