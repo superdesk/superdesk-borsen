@@ -55,6 +55,7 @@ module.exports = function() {
                 'Spike': 'Delete',
                 'spike': 'delete',
                 'Spike Item': 'Delete item',
+		'Spike item': 'Delete item',
                 'Spiked': 'Deleted',
                 'Spiked Items': 'Deleted items',
             }
