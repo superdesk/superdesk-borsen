@@ -45,12 +45,12 @@ module.exports = function() {
                 'Correct item': 'Update item',
                 'Corrected': 'Updated'
                 'Send Correction': 'Send update',
-                'Update': 'Full update',
-                'UPDATE': 'Full update',
-                'Update created': 'Full update created',
-                'Unlink update': 'Unlink full update',
-                'Update Created': 'Full update created',
-                'U': 'FU',
+                'Update': 'New version',
+                'UPDATE': 'New version',
+                'Update created': 'New version created',
+                'Unlink update': 'Unlink new version',
+                'Update Created': 'New version created',
+                'U': 'NV',
                 'C': 'Update',
                 'Spike': 'Delete',
                 'spike': 'delete',
@@ -136,7 +136,6 @@ module.exports = function() {
                 'provider',
                 'desk',
                 'fetchedDesk',
-                'used',
                 'nestedlink',
                 'translations'
             ]
