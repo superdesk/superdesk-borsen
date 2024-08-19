@@ -43,7 +43,7 @@ module.exports = function() {
                 'Correct': 'Update',
                 'CORRECT': 'Update',
                 'Correct item': 'Update item',
-                'Corrected': 'Updated'
+                'Corrected': 'Updated',
                 'Send Correction': 'Send update',
                 'Update': 'New version',
                 'UPDATE': 'New version',
@@ -55,9 +55,9 @@ module.exports = function() {
                 'Spike': 'Delete',
                 'spike': 'delete',
                 'Spike Item': 'Delete item',
-		'Spike item': 'Delete item',
+                'Spike item': 'Delete item',
                 'Spiked': 'Deleted',
-                'Spiked Items': 'Deleted items',
+                'Spiked Items': 'Deleted items'
             }
         },
 
