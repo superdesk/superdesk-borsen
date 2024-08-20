@@ -119,7 +119,8 @@ module.exports = function() {
 
         list: {
             priority: [
-                'priority'
+                'priority',
+                'urgency'
             ],
             firstLine: [
                 'headline',
