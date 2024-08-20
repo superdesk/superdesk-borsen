@@ -131,6 +131,7 @@ module.exports = function() {
             secondLine: [
                 'state',
                 'update',
+                'priority',
                 'scheduledDateTime',
                 'flags',
                 'updated',
