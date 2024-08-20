@@ -119,7 +119,7 @@ module.exports = function() {
 
         list: {
             priority: [
-                'urgency'
+                'priority'
             ],
             firstLine: [
                 'headline',
@@ -129,9 +129,9 @@ module.exports = function() {
                 'versioncreated'
             ],
             secondLine: [
+                'urgency',
                 'state',
                 'update',
-                'priority',
                 'scheduledDateTime',
                 'flags',
                 'updated',
