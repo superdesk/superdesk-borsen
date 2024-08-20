@@ -130,7 +130,6 @@ module.exports = function() {
                 'versioncreated'
             ],
             secondLine: [
-                'urgency',
                 'state',
                 'update',
                 'scheduledDateTime',
