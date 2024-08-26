@@ -57,7 +57,9 @@ module.exports = function() {
                 'Spike Item': 'Delete item',
                 'Spike item': 'Delete item',
                 'Spiked': 'Deleted',
-                'Spiked Items': 'Deleted items'
+                'Spiked Items': 'Deleted items',
+                'Unspike Item': 'Undelete Item',
+                'Unspike': 'Undelete'
             }
         },
 
