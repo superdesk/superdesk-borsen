@@ -1,11 +1,11 @@
-import {IExtension, IExtensionActivationResult} from 'superdesk-api';
-import {DisplayPublishedTime} from './publish-date';
+import {ISuperdesk, IExtension, IExtensionActivationResult} from 'superdesk-api';
+import {getPublishDate} from './publish-date';
 
 const extension: IExtension = {
-    activate: () => {
+    activate: (superdesk: ISuperdesk) => {
         const result: IExtensionActivationResult = {
             contributions: {
-                authoringTopbar2Widgets: [DisplayPublishedTime],
+                authoringTopbar2Widgets: [getPublishDate(superdesk)],
             },
         };
 
