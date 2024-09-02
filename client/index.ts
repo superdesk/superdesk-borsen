@@ -29,6 +29,10 @@ setTimeout(() => {
                     return broadcasting;
                 }),
             },
+            {
+                id: 'topbar-publish-date',
+                load: () => import('../client/extensions/topbar-publish-date'),
+            }
         ],
         {},
         {
