@@ -81,7 +81,8 @@ module.exports = function() {
             {id: 'topics', name:'Topics', field: 'subject', list: 'topics'},
             {id: 'language', name:'Language', field: 'language', list: 'languages'},
 	    {id: 'status', name:'Status', field: 'subject', list: 'status'},
-	    {id: 'proofreading', name:'Proofreading status', field: 'subject', list: 'proofreading'}
+	    {id: 'proofreading', name:'Proofreading status', field: 'subject', list: 'proofreading'},
+	    {id: 'tags', name:'Tags', field: 'subject', list: 'tags'}
         ],
 
         features: {
