@@ -60,7 +60,8 @@ module.exports = function() {
                 'Spiked Items': 'Deleted items',
                 'Unspike Item': 'Undelete Item',
                 'Unspike': 'Undelete',
-		'Attachments': 'Print attachments'
+		'Attachments': 'Print attachments',
+		'ATTACHMENTS': 'Print attachments',
             }
         },
 
@@ -82,7 +83,7 @@ module.exports = function() {
             {id: 'language', name:'Language', field: 'language', list: 'languages'},
 	    {id: 'status', name:'Status', field: 'subject', list: 'status'},
 	    {id: 'proofreading', name:'Proofreading status', field: 'subject', list: 'proofreading'},
-	    {id: 'tags', name:'Tags', field: 'subject', list: 'tags'}
+	    {id: 'tags', name:'Tags', field: 'subject', list: 'tags'},
         ],
 
         features: {
