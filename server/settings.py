@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     "apps.languages",
     "planning",
     "superdesk.auth.saml",
+    "borsen.io",
 ]
 
 PLANNING_EVENT_TEMPLATES_ENABLED = True
