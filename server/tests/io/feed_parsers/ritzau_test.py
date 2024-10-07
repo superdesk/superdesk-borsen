@@ -14,8 +14,11 @@ import settings
 from superdesk import config
 from superdesk.etree import etree
 from superdesk.tests import TestCase
+from flask import current_app as app
+from apps.prepopulate.app_populate import AppPopulateCommand
 
 from borsen.io.feed_parsers.ritzau import RitzauFeedParser
+import borsen
 
 
 class BaseRitzauTestCase(TestCase):
@@ -24,7 +27,10 @@ class BaseRitzauTestCase(TestCase):
 
     def setUp(self):
         super().setUp()
-        # settings are needed in order to get into account NITF_MAPPING
+        voc_file = os.path.join(
+            os.path.abspath(os.path.dirname(os.path.dirname(borsen.__file__))), "tests/io/fixtures", "vocabularies.json"
+        )
+        AppPopulateCommand().run(voc_file)
         for key in dir(settings):
             if key.isupper():
                 setattr(config, key, getattr(settings, key))
@@ -45,13 +51,12 @@ class BaseRitzauTestCase(TestCase):
 
 class RitzauTestCase(BaseRitzauTestCase):
 
-    # def test_can_parse(self):
-    #     self.assertTrue(RitzauFeedParser().can_parse(self.xml_root))
+    def test_can_parse(self):
+        self.assertTrue(RitzauFeedParser().can_parse(self.xml_root))
 
     def test_content(self):
         item = self.item
-        print(item)
-        self.assertEqual(item["anpa_category"], [{"name": "Udland", "qcode": "udland"}])
+        self.assertEqual(item["anpa_category"], [{"name": "bar", "qcode": "f2"}])
         self.assertEqual(item["version"], 1)
         self.assertEqual(item["byline"], "/ritzau/")
         self.assertEqual(item["guid"], "9a6955fc-11da-46b6-9903-439ebb288f2d")

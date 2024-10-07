@@ -14,7 +14,8 @@
         "schema": {
             "name": {"translate": true},
             "qcode": {},
-            "subject": {}
+            "subject": {},
+            "ritzau_section_id":{}
         },
         "translations": {
             "display_name": {

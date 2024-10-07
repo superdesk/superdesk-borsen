@@ -1,0 +1,21 @@
+[
+    {
+        "_id": "categories",
+        "display_name": "Categories",
+        "type": "manageable",
+        "selection_type": "multi selection",
+        "unique_field": "qcode",
+        "init_version": 1,
+        "items": [
+
+            {"is_active": true, "name": "foo", "qcode": "f1", "ritzau_section_id": "assignment"},
+            {"is_active": true, "name": "bar", "qcode": "f2", "ritzau_section_id": "article"}
+        ],
+        "schema": {
+            "name": {"translate": true},
+            "qcode": {},
+            "subject": {},
+            "ritzau_section_id":{}
+        }
+    }
+]
