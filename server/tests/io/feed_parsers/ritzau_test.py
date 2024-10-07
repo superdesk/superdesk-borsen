@@ -56,7 +56,19 @@ class RitzauTestCase(BaseRitzauTestCase):
 
     def test_content(self):
         item = self.item
-        self.assertEqual(item["anpa_category"], [{"name": "bar", "qcode": "f2"}])
+        self.assertEqual(
+            item["anpa_category"],
+            [
+                {
+                    "name": "bar",
+                    "qcode": "f2",
+                    "ritzau_section_id": "article",
+                    "subject": "",
+                    "translations": {"name": {"fr": "article-fr", "es": "article-es"}},
+                    "scheme": "categories",
+                }
+            ],
+        )
         self.assertEqual(item["version"], 1)
         self.assertEqual(item["byline"], "/ritzau/")
         self.assertEqual(item["guid"], "9a6955fc-11da-46b6-9903-439ebb288f2d")
