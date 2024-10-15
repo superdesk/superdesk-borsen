@@ -62,7 +62,7 @@ class RitzauTestCase(BaseRitzauTestCase):
                 {
                     "name": "bar",
                     "qcode": "f2",
-                    "ritzau_section_id": "article",
+                    "ritzau_section_id": 2,
                     "subject": "",
                     "translations": {"name": {"fr": "article-fr", "es": "article-es"}},
                     "scheme": "categories",

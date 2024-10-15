@@ -23,16 +23,16 @@ class RitzauFeedParser(BaseRitzauFeedParser):
 
     def __init__(self):
         super().__init__()
-        self.default_mapping.update({"anpa_category": {"xpath": "section/text()", "filter": self._category_filter}})
+        self.default_mapping.update({"anpa_category": {"xpath": "sectionID/text()", "filter": self._category_filter}})
 
     def _category_filter(self, category):
         voc_categories = superdesk.get_resource_service("vocabularies").get_items(_id="categories")
         if voc_categories:
-            categories_cv = {i["ritzau_section_id"].lower(): i for i in voc_categories if "ritzau_section_id" in i}
+            categories_cv = {str(i["ritzau_section_id"]): i for i in voc_categories if "ritzau_section_id" in i}
         else:
             categories_cv = {}
 
-        categories = [cat.strip().lower() for cat in category.split(",") if cat.strip()]
+        categories = [str(cat) for cat in category]
 
         populated_categories = []
         for cat in categories:

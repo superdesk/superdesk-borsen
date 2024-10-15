@@ -5,10 +5,10 @@
         "type": "manageable",
         "selection_type": "multi selection",
         "unique_field": "qcode",
-        "init_version": 1,
+        "init_version": 2,
         "items": [
-            {"is_active": true, "name": "foo", "qcode": "f1", "ritzau_section_id": "assignment",  "subject": "", "translations": {"name": {"fr": "assignment-fr", "es": "assignment-es"}}},
-            {"is_active": true, "name": "bar", "qcode": "f2", "ritzau_section_id": "article",  "subject": "", "translations": {"name": {"fr": "article-fr", "es": "article-es"}}}
+            {"is_active": true, "name": "foo", "qcode": "f1", "ritzau_section_id": 1,  "subject": "", "translations": {"name": {"fr": "assignment-fr", "es": "assignment-es"}}},
+            {"is_active": true, "name": "bar", "qcode": "f2", "ritzau_section_id": 2,  "subject": "", "translations": {"name": {"fr": "article-fr", "es": "article-es"}}}
         ],
         "schema": {
             "name": {"translate": true},
