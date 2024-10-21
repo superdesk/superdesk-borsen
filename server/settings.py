@@ -139,7 +139,7 @@ SCHEMA = {
     "picture": {
         "slugline": {"required": False},
         "headline": {"required": False},
-        "description_text": {"required": True},
+        "description_text": {"required": False},
         "byline": {"required": False},
         "copyrightnotice": {"required": False},
         "usageterms": {"required": False},
@@ -148,8 +148,8 @@ SCHEMA = {
     "video": {
         "slugline": {"required": False},
         "headline": {"required": False},
-        "description_text": {"required": True},
-        "byline": {"required": True},
+        "description_text": {"required": False},
+        "byline": {"required": False},
         "copyrightnotice": {"required": False},
         "usageterms": {"required": False},
         "ednote": {"required": False},
@@ -191,7 +191,7 @@ VALIDATOR_MEDIA_METADATA = {
         "required": False,
     },
     "description_text": {
-        "required": True,
+        "required": False,
     },
     "byline": {
         "required": False,
