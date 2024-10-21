@@ -17,6 +17,29 @@ module.exports = function() {
         ],
 
         defaultRoute: '/workspace/monitoring',
+	validatorMediaMetadata: {
+            headline: {
+                required: false
+            },
+            alt_text: {
+                required: false
+            },
+            description_text: {
+                required: false
+            },
+            copyrightholder: {
+                required: false
+            },
+            byline: {
+                required: false
+            },
+            usageterms: {
+                required: false
+            },
+            copyrightnotice: {
+                required: false
+            }
+        },
 
          publisher: {
             protocol: 'https',                /* http or https */
