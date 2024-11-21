@@ -44,11 +44,11 @@ module.exports = function() {
          publisher: {
             protocol: 'https',                /* http or https */
             tenant: '',              /* tenant - semantically subdomain, '' is allowed */
-            domain: '',           /* domain name for the publisher */
+            domain: 'sp-publisher.superdesk.pro',           /* domain name for the publisher */
             base: 'api/v2',                  /* api base path */
 
             wsProtocol: 'wss',                /* ws or wss (websocket); if unspecified or '' defaults to 'wss' */
-            wsDomain: '',  /* domain name (usually domain as above) */
+            wsDomain: 'sp-publisher.superdesk.pro',  /* domain name (usually domain as above) */
                                             /* e.g.: example.com, abc.example.com */
                                             /* tenant, as above, is NOT used for websocket */
             wsPath: '/ws',                    /* path to websocket root dir */
