@@ -138,7 +138,7 @@ ORGANIZATION_NAME_ABBREVIATION = env("ORGANIZATION_NAME_ABBREVIATION", "SoFab")
 SCHEMA = {
     "picture": {
         "slugline": {"required": False},
-        "headline": {"required": False},
+        "headline": {"required": True},
         "description_text": {"required": False},
         "byline": {"required": True},
         "copyrightnotice": {"required": False},
@@ -147,7 +147,7 @@ SCHEMA = {
     },
     "video": {
         "slugline": {"required": False},
-        "headline": {"required": False},
+        "headline": {"required": True},
         "description_text": {"required": False},
         "byline": {"required": True},
         "copyrightnotice": {"required": False},

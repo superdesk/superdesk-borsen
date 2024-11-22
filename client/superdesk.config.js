@@ -19,7 +19,7 @@ module.exports = function() {
         defaultRoute: '/workspace/monitoring',
 	validatorMediaMetadata: {
             headline: {
-                required: false
+                required: true
             },
             alt_text: {
                 required: false
