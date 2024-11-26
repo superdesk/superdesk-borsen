@@ -24,7 +24,7 @@ class RitzauFeedParser(BaseRitzauFeedParser):
     def __init__(self):
         super().__init__()
         self.default_mapping.update(
-            {"anpa_category": {"xpath": "section/text()", "filter": self.section_category_filter}}
+            {"anpa_category": {"xpath": "sectionID/text()", "filter": self.section_category_filter}}
         )
 
     def do_mapping(self, item, item_xml, setting_param_name=None, namespaces=None):
@@ -42,7 +42,7 @@ class RitzauFeedParser(BaseRitzauFeedParser):
     def section_category_filter(self, category):
         voc_categories = self.get_cv_items("sections")
         if voc_categories:
-            categories_cv = {str(i["qcode"]): i for i in voc_categories if "qcode" in i}
+            categories_cv = {str(i["ritzau_section_id"]): i for i in voc_categories if "ritzau_section_id" in i}
         else:
             categories_cv = {}
 

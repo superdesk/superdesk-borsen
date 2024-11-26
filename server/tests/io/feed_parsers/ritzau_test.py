@@ -64,7 +64,7 @@ class RitzauTestCase(BaseRitzauTestCase):
                     "qcode": "sandbox",
                     "subject": None,
                     "translations": {"name": {"da": "Sandbox"}},
-                    "ritzau_section_id": "",
+                    "ritzau_section_id": "4",
                     "scheme": "sections",
                 },
                 {
