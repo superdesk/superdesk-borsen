@@ -24,18 +24,11 @@ class RitzauFeedParser(BaseRitzauFeedParser):
     def __init__(self):
         super().__init__()
         self.default_mapping.update(
-            {"anpa_category": {"xpath": "sectionID/text()", "filter": self.sectionID_category_filter}}
+            {"anpa_category": {"xpath": "section/text()", "filter": self.section_category_filter}}
         )
 
     def do_mapping(self, item, item_xml, setting_param_name=None, namespaces=None):
         item = super().do_mapping(item, item_xml, setting_param_name, namespaces)
-
-        # Parse section to Category
-        data = item_xml.xpath("section/text()", namespaces=namespaces)
-        if data:
-            values = self.section_category_filter(data)
-            for val in values:
-                item["anpa_category"].append(val)
 
         # Add Default Category:
         sections_cv_items = self.get_cv_items("sections")
@@ -46,27 +39,18 @@ class RitzauFeedParser(BaseRitzauFeedParser):
 
         return item
 
-    def _category_filter(self, category, cv_name, mapping_field):
-        voc_categories = self.get_cv_items(cv_name)
+    def section_category_filter(self, category):
+        voc_categories = self.get_cv_items("sections")
         if voc_categories:
-            categories_cv = {str(i[mapping_field]): i for i in voc_categories if mapping_field in i}
+            categories_cv = {str(i["qcode"]): i for i in voc_categories if "qcode" in i}
         else:
             categories_cv = {}
 
-        categories = [str(cat) for cat in category]
-
         populated_categories = []
-        for cat in categories:
-            match = categories_cv.get(cat)
-            if match:
-                populated_categories.append(match)
+        match = categories_cv.get(category)
+        if match:
+            populated_categories.append(match)
         return populated_categories
-
-    def sectionID_category_filter(self, category):
-        return self._category_filter(category, "categories", "ritzau_section_id")
-
-    def section_category_filter(self, category):
-        return self._category_filter(category, "sections", "qcode")
 
     def get_cv_items(self, cv_name):
         return superdesk.get_resource_service("vocabularies").get_items(_id=cv_name)

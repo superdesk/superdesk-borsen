@@ -56,18 +56,9 @@ class RitzauTestCase(BaseRitzauTestCase):
 
     def test_content(self):
         item = self.item
-        print(item["anpa_category"])
         self.assertEqual(
             item["anpa_category"],
             [
-                {
-                    "name": "bar",
-                    "qcode": "f2",
-                    "ritzau_section_id": 2,
-                    "subject": "",
-                    "translations": {"name": {"fr": "article-fr", "es": "article-es"}},
-                    "scheme": "categories",
-                },
                 {
                     "name": "Sandbox",
                     "qcode": "sandbox",
