@@ -38,15 +38,11 @@ class RitzauFeedParser(BaseRitzauFeedParser):
                 item["anpa_category"].append(val)
 
         # Add Default Category:
-        item["anpa_category"].append(
-            {
-                "name": "Generelt",
-                "qcode": "generelt",
-                "subject": "",
-                "translations": {"name": {"da": "Generelt"}},
-                "ritzau_section_id": "",
-            }
-        )
+        sections_cv_items = self.get_cv_items("sections")
+        default_section = [section for section in sections_cv_items if section["qcode"] == "generelt"]
+
+        if default_section:
+            item["anpa_category"].append(default_section[0])
 
         return item
 

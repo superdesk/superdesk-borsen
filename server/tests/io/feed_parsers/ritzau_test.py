@@ -56,6 +56,7 @@ class RitzauTestCase(BaseRitzauTestCase):
 
     def test_content(self):
         item = self.item
+        print(item["anpa_category"])
         self.assertEqual(
             item["anpa_category"],
             [
@@ -78,9 +79,10 @@ class RitzauTestCase(BaseRitzauTestCase):
                 {
                     "name": "Generelt",
                     "qcode": "generelt",
-                    "subject": "",
+                    "subject": None,
                     "translations": {"name": {"da": "Generelt"}},
                     "ritzau_section_id": "",
+                    "scheme": "sections",
                 },
             ],
         )

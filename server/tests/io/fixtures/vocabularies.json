@@ -110,6 +110,18 @@
                     }
                 },
                 "ritzau_section_id": ""
+            },
+            {
+                "is_active":true,
+                "name":"Generelt",
+                "qcode":"generelt",
+                "subject":null,
+                "translations":{
+                  "name":{
+                    "da":"Generelt"
+                  }
+                },
+                "ritzau_section_id":""
             }
         ],
         "schema":{
