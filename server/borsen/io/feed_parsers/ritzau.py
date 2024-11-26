@@ -23,12 +23,37 @@ class RitzauFeedParser(BaseRitzauFeedParser):
 
     def __init__(self):
         super().__init__()
-        self.default_mapping.update({"anpa_category": {"xpath": "sectionID/text()", "filter": self._category_filter}})
+        self.default_mapping.update(
+            {"anpa_category": {"xpath": "sectionID/text()", "filter": self.sectionID_category_filter}}
+        )
 
-    def _category_filter(self, category):
-        voc_categories = superdesk.get_resource_service("vocabularies").get_items(_id="categories")
+    def do_mapping(self, item, item_xml, setting_param_name=None, namespaces=None):
+        item = super().do_mapping(item, item_xml, setting_param_name, namespaces)
+
+        # Parse section to Category
+        data = item_xml.xpath("section/text()", namespaces=namespaces)
+        if data:
+            values = self.section_category_filter(data)
+            for val in values:
+                item["anpa_category"].append(val)
+
+        # Add Default Category:
+        item["anpa_category"].append(
+            {
+                "name": "Generelt",
+                "qcode": "generelt",
+                "subject": "",
+                "translations": {"name": {"da": "Generelt"}},
+                "ritzau_section_id": "",
+            }
+        )
+
+        return item
+
+    def _category_filter(self, category, cv_name, mapping_field):
+        voc_categories = self.get_cv_items(cv_name)
         if voc_categories:
-            categories_cv = {str(i["ritzau_section_id"]): i for i in voc_categories if "ritzau_section_id" in i}
+            categories_cv = {str(i[mapping_field]): i for i in voc_categories if mapping_field in i}
         else:
             categories_cv = {}
 
@@ -40,6 +65,15 @@ class RitzauFeedParser(BaseRitzauFeedParser):
             if match:
                 populated_categories.append(match)
         return populated_categories
+
+    def sectionID_category_filter(self, category):
+        return self._category_filter(category, "categories", "ritzau_section_id")
+
+    def section_category_filter(self, category):
+        return self._category_filter(category, "sections", "qcode")
+
+    def get_cv_items(self, cv_name):
+        return superdesk.get_resource_service("vocabularies").get_items(_id=cv_name)
 
 
 register_feed_parser(RitzauFeedParser.NAME, RitzauFeedParser())

@@ -66,7 +66,22 @@ class RitzauTestCase(BaseRitzauTestCase):
                     "subject": "",
                     "translations": {"name": {"fr": "article-fr", "es": "article-es"}},
                     "scheme": "categories",
-                }
+                },
+                {
+                    "name": "Sandbox",
+                    "qcode": "sandbox",
+                    "subject": None,
+                    "translations": {"name": {"da": "Sandbox"}},
+                    "ritzau_section_id": "",
+                    "scheme": "sections",
+                },
+                {
+                    "name": "Generelt",
+                    "qcode": "generelt",
+                    "subject": "",
+                    "translations": {"name": {"da": "Generelt"}},
+                    "ritzau_section_id": "",
+                },
             ],
         )
         self.assertEqual(item["version"], 1)

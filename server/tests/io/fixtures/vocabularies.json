@@ -7,14 +7,119 @@
         "unique_field": "qcode",
         "init_version": 2,
         "items": [
-            {"is_active": true, "name": "foo", "qcode": "f1", "ritzau_section_id": 1,  "subject": "", "translations": {"name": {"fr": "assignment-fr", "es": "assignment-es"}}},
-            {"is_active": true, "name": "bar", "qcode": "f2", "ritzau_section_id": 2,  "subject": "", "translations": {"name": {"fr": "article-fr", "es": "article-es"}}}
+            {
+                "is_active": true,
+                "name": "foo",
+                "qcode": "f1",
+                "ritzau_section_id": 1,
+                "subject": "",
+                "translations": {
+                    "name": {
+                        "fr": "assignment-fr",
+                        "es": "assignment-es"
+                    }
+                }
+            },
+            {
+                "is_active": true,
+                "name": "bar",
+                "qcode": "f2",
+                "ritzau_section_id": 2,
+                "subject": "",
+                "translations": {
+                    "name": {
+                        "fr": "article-fr",
+                        "es": "article-es"
+                    }
+                }
+            }
         ],
         "schema": {
-            "name": {"translate": true},
+            "name": {
+                "translate": true
+            },
             "qcode": {},
             "subject": {},
-            "ritzau_section_id":{}
+            "ritzau_section_id": {}
         }
+    },
+    {
+        "_id": "sections",
+        "display_name": "Sections",
+        "type": "manageable",
+        "selection_type": "single selection",
+        "unique_field": "qcode",
+        "init_version": 1,
+        "items": [
+            {
+                "is_active": true,
+                "name": "Sandbox",
+                "qcode": "sandbox",
+                "subject": null,
+                "translations": {
+                    "name": {
+                        "da": "Sandbox"
+                    }
+                },
+                "ritzau_section_id": ""
+            },
+            {
+                "is_active": true,
+                "name": "AI",
+                "qcode": "ai",
+                "subject": "",
+                "translations": {
+                    "name": {
+                        "da": "AI"
+                    }
+                },
+                "ritzau_section_id": ""
+            },
+            {
+                "is_active": true,
+                "name": "Advertorial",
+                "qcode": "advertorial",
+                "subject": null,
+                "translations": {
+                    "name": {
+                        "da": "Advertorial"
+                    }
+                },
+                "ritzau_section_id": ""
+            },
+            {
+                "is_active": true,
+                "name": "Virksomheder",
+                "qcode": "virksomheder",
+                "subject": "",
+                "translations": {
+                    "name": {
+                        "da": "Virksomheder"
+                    }
+                },
+                "ritzau_section_id": ""
+            },
+            {
+                "is_active": true,
+                "name": "Økonomi",
+                "qcode": "okonomi",
+                "subject": "",
+                "translations": {
+                    "name": {
+                        "da": "Økonomi"
+                    }
+                },
+                "ritzau_section_id": ""
+            }
+        ],
+        "schema":{
+            "name":{
+              "translate":true,
+              "required":true
+            },
+            "qcode":{"required":true},
+            "subject":{},
+            "ritzau_section_id":{}
+          }
     }
 ]
