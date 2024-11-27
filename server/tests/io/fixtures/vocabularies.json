@@ -11,7 +11,7 @@
                 "is_active": true,
                 "name": "foo",
                 "qcode": "f1",
-                "ritzau_section_id": 1,
+                "ritzau_section_id": "1",
                 "subject": "",
                 "translations": {
                     "name": {
@@ -24,7 +24,7 @@
                 "is_active": true,
                 "name": "bar",
                 "qcode": "f2",
-                "ritzau_section_id": 2,
+                "ritzau_section_id": "2",
                 "subject": "",
                 "translations": {
                     "name": {
@@ -32,6 +32,18 @@
                         "es": "article-es"
                     }
                 }
+            },
+            {
+                "is_active":true,
+                "name":"Generelt",
+                "qcode":"generelt",
+                "subject":null,
+                "translations":{
+                  "name":{
+                    "da":"Generelt"
+                  }
+                },
+                "ritzau_section_id":""
             }
         ],
         "schema": {
@@ -110,18 +122,6 @@
                     }
                 },
                 "ritzau_section_id": ""
-            },
-            {
-                "is_active":true,
-                "name":"Generelt",
-                "qcode":"generelt",
-                "subject":null,
-                "translations":{
-                  "name":{
-                    "da":"Generelt"
-                  }
-                },
-                "ritzau_section_id":""
             }
         ],
         "schema":{

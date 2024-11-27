@@ -28,7 +28,9 @@ class BaseRitzauTestCase(TestCase):
     def setUp(self):
         super().setUp()
         voc_file = os.path.join(
-            os.path.abspath(os.path.dirname(os.path.dirname(borsen.__file__))), "tests/io/fixtures", "vocabularies.json"
+            os.path.abspath(os.path.dirname(os.path.dirname(borsen.__file__))),
+            "tests/io/fixtures",
+            "vocabularies.json",
         )
         AppPopulateCommand().run(voc_file)
         for key in dir(settings):
@@ -57,7 +59,7 @@ class RitzauTestCase(BaseRitzauTestCase):
     def test_content(self):
         item = self.item
         self.assertEqual(
-            item["anpa_category"],
+            item["subject"],
             [
                 {
                     "name": "Sandbox",
@@ -66,14 +68,19 @@ class RitzauTestCase(BaseRitzauTestCase):
                     "translations": {"name": {"da": "Sandbox"}},
                     "ritzau_section_id": "4",
                     "scheme": "sections",
-                },
+                }
+            ],
+        )
+        self.assertEqual(
+            item["anpa_category"],
+            [
                 {
                     "name": "Generelt",
                     "qcode": "generelt",
                     "subject": None,
                     "translations": {"name": {"da": "Generelt"}},
                     "ritzau_section_id": "",
-                    "scheme": "sections",
+                    "scheme": "categories",
                 },
             ],
         )
