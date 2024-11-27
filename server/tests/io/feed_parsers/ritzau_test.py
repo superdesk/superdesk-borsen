@@ -60,13 +60,21 @@ class RitzauTestCase(BaseRitzauTestCase):
             item["anpa_category"],
             [
                 {
-                    "name": "bar",
-                    "qcode": "f2",
-                    "ritzau_section_id": 2,
-                    "subject": "",
-                    "translations": {"name": {"fr": "article-fr", "es": "article-es"}},
-                    "scheme": "categories",
-                }
+                    "name": "Sandbox",
+                    "qcode": "sandbox",
+                    "subject": None,
+                    "translations": {"name": {"da": "Sandbox"}},
+                    "ritzau_section_id": "4",
+                    "scheme": "sections",
+                },
+                {
+                    "name": "Generelt",
+                    "qcode": "generelt",
+                    "subject": None,
+                    "translations": {"name": {"da": "Generelt"}},
+                    "ritzau_section_id": "",
+                    "scheme": "sections",
+                },
             ],
         )
         self.assertEqual(item["version"], 1)

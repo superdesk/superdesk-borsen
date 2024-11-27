@@ -23,23 +23,37 @@ class RitzauFeedParser(BaseRitzauFeedParser):
 
     def __init__(self):
         super().__init__()
-        self.default_mapping.update({"anpa_category": {"xpath": "sectionID/text()", "filter": self._category_filter}})
+        self.default_mapping.update(
+            {"anpa_category": {"xpath": "sectionID/text()", "filter": self.section_category_filter}}
+        )
 
-    def _category_filter(self, category):
-        voc_categories = superdesk.get_resource_service("vocabularies").get_items(_id="categories")
+    def do_mapping(self, item, item_xml, setting_param_name=None, namespaces=None):
+        item = super().do_mapping(item, item_xml, setting_param_name, namespaces)
+
+        # Add Default Category:
+        sections_cv_items = self.get_cv_items("sections")
+        default_section = [section for section in sections_cv_items if section["qcode"] == "generelt"]
+
+        if default_section:
+            item["anpa_category"].append(default_section[0])
+
+        return item
+
+    def section_category_filter(self, category):
+        voc_categories = self.get_cv_items("sections")
         if voc_categories:
             categories_cv = {str(i["ritzau_section_id"]): i for i in voc_categories if "ritzau_section_id" in i}
         else:
             categories_cv = {}
 
-        categories = [str(cat) for cat in category]
-
         populated_categories = []
-        for cat in categories:
-            match = categories_cv.get(cat)
-            if match:
-                populated_categories.append(match)
+        match = categories_cv.get(category)
+        if match:
+            populated_categories.append(match)
         return populated_categories
+
+    def get_cv_items(self, cv_name):
+        return superdesk.get_resource_service("vocabularies").get_items(_id=cv_name)
 
 
 register_feed_parser(RitzauFeedParser.NAME, RitzauFeedParser())
