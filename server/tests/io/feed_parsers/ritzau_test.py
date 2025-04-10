@@ -14,7 +14,6 @@ import settings
 from superdesk import config
 from superdesk.etree import etree
 from superdesk.tests import TestCase
-from flask import current_app as app
 from apps.prepopulate.app_populate import AppPopulateCommand
 
 from borsen.io.feed_parsers.ritzau import RitzauFeedParser
