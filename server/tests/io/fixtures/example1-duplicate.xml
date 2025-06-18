@@ -1,0 +1,66 @@
+<RBNews xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+  <NewsID>71485c75-f016-49f3-b170-97bb9022496c</NewsID>
+  <PublishDate>2025-05-15T15:37:46.843</PublishDate>
+  <Topstory>0</Topstory>
+  <strapline>USA</strapline>
+  <headline>Powell signaler ændring i rammerne for centralbankens pengepolitik</headline>
+  <subtitle i:nil="true"/>
+  <town i:nil="true"/>
+  <origin>Marketwire</origin>
+  <sectionID>5</sectionID>
+  <section>Article</section>
+  <sectionShort>F</sectionShort>
+  <version>1</version>
+  <Replaces i:nil="true"/>
+  <format>FINANS-TELEGRAM</format>
+  <content>
+    &lt;p&gt;Den amerikanske centralbanks politiske beslutningstagere overvejer ændringer i centrale dele af de rammer, der styrer deres pengepolitiske beslutninger, herunder hvordan de tænker på manglen på beskæftigelse, og hvordan de griber deres inflationsmål an. &lt;/p&gt;
+    &lt;p&gt; Det udtaler den amerikanske centralbanks førstemand, Jerome Powell, i en forberedt tale ifølge Bloomberg News. &lt;/p&gt;
+    &lt;p&gt; Embedsmænd "har indikeret, at de mente, at det ville være passende at genoverveje sproget omkring mangel (på beskæftigelse, red.). Og på vores møde i sidste uge havde vi et lignende syn på den gennemsnitlige inflationsmålsætning", siger Jerome Powell. &lt;/p&gt;
+    &lt;p&gt; Powell erkender, at de nuværende rammer blev udformet på et tidspunkt med vedvarende lave renter og lav inflation.&lt;br /&gt; &lt;/p&gt;
+    &lt;p&gt; - Vi vil sikre, at vores nye konsensuserklæring er robust over for en bred vifte af økonomiske miljøer og udviklinger, siger han. &lt;/p&gt;
+    &lt;p&gt; Centralbankens embedsmænd begyndte i år en periodisk gennemgang af dens langsigtede strategi - eller ramme - for implementering af pengepolitik og dens kommunikationsværktøjer. &lt;/p&gt;
+    &lt;p&gt; Rammerne fungerer som en vejledning for embedsmændene i centralbankens renteudvalg, FOMC, når de forsøger at opfylde de brede mål, som Kongressen har givet dem om at fremme stabile priser og maksimal beskæftigelse. &lt;/p&gt;
+    &lt;p&gt; Centralbanken sigter mod en inflation på 2 pct. &lt;/p&gt;
+    &lt;p&gt; Efter den sidste gennemgang, som blev afsluttet i 2020, vedtog centralbanken en ny ramme, der sigter mod at opnå en inflation moderat over 2 pct. i "et stykke tid" efter perioder, hvor inflationen vedvarende lå under dette niveau - en tilgang kendt som fleksibel gennemsnitlig inflationsmålretning. &lt;/p&gt;
+    &lt;p&gt; Kritikere har siden sagt, at den nye ramme var for skræddersyet til datidens lave rente- og inflationsmiljø og ikke var dækkende efter Covid-19-pandemiens begyndelse. &lt;/p&gt;
+    &lt;p&gt; - Forankrede forventninger er afgørende for alt, hvad vi gør, og vi er fortsat fuldt engagerede i 2 pct.-målet i dag, siger han. &lt;/p&gt;
+    &lt;p&gt; Alligevel pointerer han, at det økonomiske miljø har ændret sig væsentligt siden 2020, og den nuværende rammegennemgang vil afspejle beslutningstagernes vurdering af disse ændringer. &lt;/p&gt;
+    &lt;p&gt; &lt;br /&gt; &lt;/p&gt;
+    &lt;p&gt;&lt;br /&gt; &lt;/p&gt;
+    &lt;p&gt; .\\&#729; MarketWire &lt;/p&gt;
+  </content>
+  <formatID>22</formatID>
+  <HistID i:nil="true"/>
+  <Priority>5</Priority>
+  <IPTCList xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <a:int>4000000</a:int>
+  </IPTCList>
+  <MultimedieList/>
+  <ISIN xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+  <Related i:nil="true"/>
+  <replacedID i:nil="true"/>
+  <Annuleret>false</Annuleret>
+  <NyVersion>false</NyVersion>
+  <Korrektion>false</Korrektion>
+  <InfoFlash>false</InfoFlash>
+  <byLine>Jakob Due Jakobsen</byLine>
+  <byLineEmail>finans@marketwire.dk</byLineEmail>
+  <byLinePhone>33308060</byLinePhone>
+  <SubjectKeyword xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+    <a:string>macro</a:string>
+    <a:string>USA</a:string>
+  </SubjectKeyword>
+  <TopWeb>false</TopWeb>
+  <TilRedaktionen i:nil="true"/>
+  <Companies/>
+  <Status>Name</Status>
+  <ContentShort>Powell signaler ændring i rammerne for centralbankens pengepolitik</ContentShort>
+  <ServiceQueueId>73292519</ServiceQueueId>
+  <SubjectKodes>
+    <SubjectCode>
+      <SubjectCodeId>255</SubjectCodeId>
+      <SubjectCodeName>USA</SubjectCodeName>
+    </SubjectCode>
+  </SubjectKodes>
+</RBNews>
