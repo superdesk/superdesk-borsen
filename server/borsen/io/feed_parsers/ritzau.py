@@ -80,31 +80,34 @@ class RitzauFeedParser(BaseRitzauFeedParser):
             logger.warning(f"Error finding article by GUID {guid}: {str(e)}")
             return None
 
-    def find_similar_article(self, headline):
-        """Find similar article by headline match in last 24 hours."""
+    def find_similar_article(self, headline, hours_back=24):
+        """Find similar article using ES 'more_like_this' query, scoped to recent hours."""
         if not headline:
             return None
 
         try:
-            cutoff = datetime.utcnow() - timedelta(hours=24)
+            search_service = superdesk.get_resource_service("search")
             query = {
-                "headline": headline,
-                "_created": {"$gte": cutoff},
-                "more_like_this": {
-                    "min_term_freq": 1,
-                    "max_query_terms": 25,
-                    "min_doc_freq": 1,
-                    "minimum_should_match": "80%",
+                "query": {
+                    "bool": {
+                        "must": {
+                            "more_like_this": {
+                                "fields": ["headline"],
+                                "like": headline,
+                                "min_term_freq": 1,
+                                "max_query_terms": 25,
+                                "minimum_should_match": "80%",
+                            }
+                        },
+                        "filter": {"range": {"_created": {"gte": f"now-{hours_back}h/h"}}},
+                    }
                 },
+                "_source": ["_id", "headline", "guid"],
             }
 
-            ingest_service = superdesk.get_resource_service("ingest")
-            results = ingest_service.get(req=None, lookup=query)
-
-            # Return the most similar item if found
-            for item in results:
-                existing_headline = self.strip_suffix(item.get("headline", ""))
-                if self.is_similar(headline, existing_headline):
+            result = search_service.search(query)
+            for item in result.get("_items", []):
+                if self.is_similar(headline, self.strip_suffix(item.get("headline", ""))):
                     return item
         except Exception as e:
             logger.warning(f"Error searching for similar article: {str(e)}")

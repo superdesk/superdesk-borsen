@@ -173,10 +173,8 @@ class RitzauDuplicateHandlingTestCase(BaseRitzauTestCase):
         mock_service = MagicMock()
         mock_service.find_one.return_value = None
 
-        def mock_get(req=None, lookup=None):
-            self.assertIn("headline", lookup)
-            self.assertIn("_created", lookup)
-            return [
+        mock_service.search.side_effect = lambda query: {
+            "_items": [
                 {
                     "_id": "existing-id",
                     "guid": "original-guid",
@@ -184,8 +182,8 @@ class RitzauDuplicateHandlingTestCase(BaseRitzauTestCase):
                     "_created": datetime.utcnow() - timedelta(hours=1),
                 }
             ]
+        }
 
-        mock_service.get.side_effect = mock_get
         mock_get_service.return_value = mock_service
 
         item = self._parse_fixture("example1-duplicate.xml")
