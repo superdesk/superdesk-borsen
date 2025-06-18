@@ -87,10 +87,22 @@ class RitzauFeedParser(BaseRitzauFeedParser):
 
         try:
             cutoff = datetime.utcnow() - timedelta(hours=24)
-            ingest_items = superdesk.get_resource_service("ingest").get(
-                req=None, lookup={"headline": {"$exists": True}, "_created": {"$gte": cutoff}}
-            )
-            for item in ingest_items:
+            query = {
+                "headline": headline,
+                "_created": {"$gte": cutoff},
+                "more_like_this": {
+                    "min_term_freq": 1,
+                    "max_query_terms": 25,
+                    "min_doc_freq": 1,
+                    "minimum_should_match": "80%",
+                },
+            }
+
+            ingest_service = superdesk.get_resource_service("ingest")
+            results = ingest_service.get(req=None, lookup=query)
+
+            # Return the most similar item if found
+            for item in results:
                 existing_headline = self.strip_suffix(item.get("headline", ""))
                 if self.is_similar(headline, existing_headline):
                     return item
