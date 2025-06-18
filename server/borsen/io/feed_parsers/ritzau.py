@@ -85,26 +85,24 @@ class RitzauFeedParser(BaseRitzauFeedParser):
             return None
 
         try:
-            search_service = superdesk.get_resource_service("search")
-            query = {
+            ingest_service = superdesk.get_resource_service("ingest")
+            source = {
                 "query": {
                     "bool": {
                         "must": {
                             "more_like_this": {
                                 "fields": ["headline"],
                                 "like": headline,
-                                "min_term_freq": 1,
-                                "max_query_terms": 25,
+                                "min_doc_freq": 1,
+                                "max_query_terms": 20,
                                 "minimum_should_match": "80%",
                             }
                         },
                         "filter": {"range": {"_created": {"gte": f"now-{hours_back}h/h"}}},
                     }
-                },
-                "_source": ["_id", "headline", "guid"],
+                }
             }
-
-            result = search_service.search(query)
+            result = ingest_service.search(source)
             for item in result.get("_items", []):
                 if self.is_similar(headline, self.strip_suffix(item.get("headline", ""))):
                     return item
