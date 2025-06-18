@@ -15,7 +15,6 @@ from difflib import SequenceMatcher
 from superdesk.io.registry import register_feed_parser
 from superdesk.io.feed_parsers.ritzau import RitzauFeedParser as BaseRitzauFeedParser
 
-from datetime import datetime, timedelta
 
 logger = logging.getLogger(__name__)
 
