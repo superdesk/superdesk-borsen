@@ -93,6 +93,7 @@ class RitzauFeedParser(BaseRitzauFeedParser):
                             "more_like_this": {
                                 "fields": ["headline"],
                                 "like": headline,
+                                "min_term_freq": 1,
                                 "min_doc_freq": 1,
                                 "max_query_terms": 20,
                                 "minimum_should_match": "80%",
@@ -103,7 +104,7 @@ class RitzauFeedParser(BaseRitzauFeedParser):
                 }
             }
             result = ingest_service.search(source)
-            for item in result.get("_items", []):
+            for item in result:
                 if self.is_similar(headline, self.strip_suffix(item.get("headline", ""))):
                     return item
         except Exception as e:

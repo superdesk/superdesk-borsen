@@ -10,6 +10,7 @@
 
 import os
 import settings
+import superdesk
 from datetime import datetime, timedelta
 from unittest.mock import patch, MagicMock
 
@@ -166,31 +167,28 @@ class RitzauDuplicateHandlingTestCase(BaseRitzauTestCase):
             self.assertNotEqual(item2["guid"], expected_guid)
             self.assertNotIn("_id", item2)
 
-    @patch("superdesk.get_resource_service")
-    def test_duplicate_detection_by_headline_similarity(self, mock_get_service):
-        """Test that items with similar headlines (≥80%) are detected as duplicates."""
+    def test_duplicate_detection_by_headline_similarity(self):
+        """Test that items with similar headlines (≥80%) are detected as duplicates using real data."""
 
-        mock_service = MagicMock()
-        mock_service.find_one.return_value = None
-
-        mock_service.search.side_effect = lambda query: {
-            "_items": [
-                {
-                    "_id": "existing-id",
-                    "guid": "original-guid",
-                    "headline": "Powell signaler ændring i rammerne for pengepolitikk",  # close enough to match
-                    "_created": datetime.utcnow() - timedelta(hours=1),
-                }
-            ]
+        ingest_service = superdesk.get_resource_service("ingest")
+        existing_item = {
+            "_id": "existing-id",
+            "guid": "original-guid",
+            "headline": "Powell signaler ændring i rammerne for centralbankens pengepolitik",
+            "body_html": "Original content",
+            "_created": datetime.utcnow() - timedelta(hours=1),
+            "versioncreated": datetime.utcnow() - timedelta(hours=1),
         }
 
-        mock_get_service.return_value = mock_service
+        ingest_service.post([existing_item])
+        try:
+            item = self._parse_fixture("example1-duplicate.xml")
+            self.assertIn("_id", item, f"Expected '_id' in item, got: {item}")
+            self.assertEqual(item["_id"], "existing-id")
+            self.assertEqual(item["guid"], "original-guid")
 
-        item = self._parse_fixture("example1-duplicate.xml")
-
-        self.assertIn("_id", item, f"Expected '_id' in item, got: {item}")
-        self.assertEqual(item["_id"], "existing-id")
-        self.assertEqual(item["guid"], "original-guid")
+        finally:
+            self.app.data.remove("ingest", {"_id": "existing-id"})
 
     def test_is_similar_method(self):
         self.assertTrue(
