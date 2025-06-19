@@ -171,24 +171,50 @@ class RitzauDuplicateHandlingTestCase(BaseRitzauTestCase):
         """Test that items with similar headlines (≥80%) are detected as duplicates using real data."""
 
         ingest_service = superdesk.get_resource_service("ingest")
-        existing_item = {
-            "_id": "existing-id",
-            "guid": "original-guid",
-            "headline": "Powell signaler ændring i rammerne for centralbankens pengepolitik",
-            "body_html": "Original content",
-            "_created": datetime.utcnow() - timedelta(hours=1),
-            "versioncreated": datetime.utcnow() - timedelta(hours=1),
-        }
 
-        ingest_service.post([existing_item])
+        ingest_items = [
+            # Matching item — should be selected
+            {
+                "_id": "existing-id",
+                "guid": "original-guid",
+                "headline": "Powell signaler ændring i rammerne for centralbankens pengepolitik",
+                "body_html": "Original content",
+                "_created": datetime.utcnow() - timedelta(hours=1),
+                "versioncreated": datetime.utcnow() - timedelta(hours=1),
+            },
+            # Non Matching items — should NOT be selected
+            {
+                "_id": "unrelated-content",
+                "guid": "9a6955fc-11da-46b6-9903-439ebb288f2d",
+                "headline": 'Hollandske forskere har "i årevis" lavet forsøg på både mennesker og dyr, hvor de har testet effekte',
+                "body_html": "Hollandske forskere lavede diesel-forsøg på mennesker og dyr.",
+                "_created": datetime.utcnow() - timedelta(hours=1),
+                "versioncreated": datetime.utcnow() - timedelta(hours=1),
+            },
+            # Another similar but not identical item that shouldn't match
+            {
+                "_id": "similar-content",
+                "guid": "similar-guid",
+                "headline": "Powell comments on central bank policy framework",
+                "body_html": "Powell made remarks about policy changes",
+                "_created": datetime.utcnow() - timedelta(hours=1),
+                "versioncreated": datetime.utcnow() - timedelta(hours=1),
+            },
+        ]
+
+        ingest_service.post(ingest_items)
         try:
             item = self._parse_fixture("example1-duplicate.xml")
+            # Verify it matched the correct item
             self.assertIn("_id", item, f"Expected '_id' in item, got: {item}")
             self.assertEqual(item["_id"], "existing-id")
             self.assertEqual(item["guid"], "original-guid")
 
+            # Verify it didn't match any of the non-matching items
+            self.assertNotEqual(item["_id"], "unrelated-content")
+            self.assertNotEqual(item["_id"], "similar-content")
         finally:
-            self.app.data.remove("ingest", {"_id": "existing-id"})
+            self.app.data.remove("ingest", {"_id": {"$in": [i["_id"] for i in ingest_items]}})
 
     def test_is_similar_method(self):
         self.assertTrue(
