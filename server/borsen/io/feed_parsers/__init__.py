@@ -1,1 +1,1 @@
-from . import ritzau  # noqa
+from . import ritzau, ritzau_detect_duplicates  # noqa
