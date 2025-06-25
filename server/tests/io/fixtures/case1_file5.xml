@@ -1,0 +1,125 @@
+<RBNews xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <NewsID>585ae983-4642-48f1-8332-5420b5e7e9bf</NewsID>
+    <PublishDate>2025-06-23T22:13:59.207</PublishDate>
+    <Topstory>0</Topstory>
+    <strapline>NET/USA/IRAN/ANGREB+NV</strapline>
+    <headline>Trump takker Iran for advarsel om angreb</headline>
+    <subtitle>Efter Irans modangreb vil der forhåbentligt ikke være mere had, siger Trump i et opslag på sociale medier.<br /></subtitle>
+    <town>Washington D.C.</town>
+    <origin>/ritzau/</origin>
+    <sectionID>2</sectionID>
+    <section>Udland</section>
+    <sectionShort>U</sectionShort>
+    <version>4</version>
+    <Replaces>
+        <RelatedNews>
+            <Headline>Trump takker Iran for advarsel om angreb</Headline>
+            <NewsID>98644e18-f379-468b-812d-9f389c542391</NewsID>
+            <Version>3</Version>
+            <PublicationDate>2025-06-23T22:08:47.21</PublicationDate>
+            <format i:nil="true"/>
+            <formatID>0</formatID>
+            <Priority>3</Priority>
+        </RelatedNews>
+        <RelatedNews>
+            <Headline>Trump takker Iran for advarsel om angreb</Headline>
+            <NewsID>3f36cf92-6f7b-429e-8fcb-3c595c093523</NewsID>
+            <Version>2</Version>
+            <PublicationDate>2025-06-23T22:03:07.073</PublicationDate>
+            <format i:nil="true"/>
+            <formatID>0</formatID>
+            <Priority>2</Priority>
+        </RelatedNews>
+        <RelatedNews>
+            <Headline i:nil="true"/>
+            <NewsID>25a67951-8189-4233-89b7-2307af8d447e</NewsID>
+            <Version>1</Version>
+            <PublicationDate>2025-06-23T22:00:43.1</PublicationDate>
+            <format i:nil="true"/>
+            <formatID>0</formatID>
+            <Priority>2</Priority>
+        </RelatedNews>
+    </Replaces>
+    <format>Net</format>
+    <content>USA's præsident, Donald Trump, kalder Irans angreb på en amerikanskledet militærbase i Qatar for "et meget svagt svar".<br />Det skriver han i et opslag på sit sociale medie, Truth Social.<br />Ifølge Trump kom ingen amerikanere til skade i angrebet og "næsten ingen skade skete".<br />- Vigtigst af alt er, at de har fået det hele ud af deres "system", og forhåbentligt vil der ikke være mere had.<br />I samme ombæring takker han Iran for at give USA en tidlig advarsel om angrebet.<br />- Måske kan Iran nu bevæge sig videre mod fred og harmoni i regionen, og jeg vil med stor entusiasme opfordre Israel til at gøre det samme, skriver Trump.<br />/ritzau/</content>
+    <formatID>2</formatID>
+    <HistID>FRSO-3723722</HistID>
+    <Priority>3</Priority>
+    <IPTCList xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+        <a:int>16000000</a:int>
+        <a:int>11000000</a:int>
+        <a:int>20000593</a:int>
+        <a:int>20000598</a:int>
+        <a:int>20000638</a:int>
+        <a:int>20000639</a:int>
+    </IPTCList>
+    <MultimedieList/>
+    <ISIN xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <Related i:nil="true"/>
+    <replacedID i:nil="true"/>
+    <Annuleret>false</Annuleret>
+    <NyVersion>true</NyVersion>
+    <Korrektion>false</Korrektion>
+    <InfoFlash>false</InfoFlash>
+    <byLine>Freja Søgaard</byLine>
+    <byLineEmail>udland@ritzau.dk</byLineEmail>
+    <byLinePhone>33300412</byLinePhone>
+    <SubjectKeyword xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    <TopWeb>false</TopWeb>
+    <TilRedaktionen i:nil="true"/>
+    <Companies/>
+    <Status>Name</Status>
+    <ContentShort>Trump takker Iran for advarsel om angreb</ContentShort>
+    <ServiceQueueId>75383899</ServiceQueueId>
+    <SubjectKodes/>
+    <Country>
+        <CountryName>Danmark</CountryName>
+        <CountryId>1</CountryId>
+    </Country>
+    <IPTCRecords>
+        <IPTCRecord>
+            <Iptc>73</Iptc>
+            <IptcMedtop>16000000</IptcMedtop>
+            <IptcName>krig og konflikt</IptcName>
+            <IptcParent i:nil="true"/>
+            <IptcPrimary>true</IptcPrimary>
+        </IPTCRecord>
+        <IPTCRecord>
+            <Iptc>678</Iptc>
+            <IptcMedtop>11000000</IptcMedtop>
+            <IptcName>politik</IptcName>
+            <IptcParent i:nil="true"/>
+            <IptcPrimary>false</IptcPrimary>
+        </IPTCRecord>
+        <IPTCRecord>
+            <Iptc>700</Iptc>
+            <IptcMedtop>20000593</IptcMedtop>
+            <IptcName>Folketinget</IptcName>
+            <IptcParent>678</IptcParent>
+            <IptcPrimary>false</IptcPrimary>
+        </IPTCRecord>
+        <IPTCRecord>
+            <Iptc>706</Iptc>
+            <IptcMedtop>20000598</IptcMedtop>
+            <IptcName>forsvar</IptcName>
+            <IptcParent>700</IptcParent>
+            <IptcPrimary>true</IptcPrimary>
+        </IPTCRecord>
+        <IPTCRecord>
+            <Iptc>758</Iptc>
+            <IptcMedtop>20000638</IptcMedtop>
+            <IptcName>internationale relationer</IptcName>
+            <IptcParent>678</IptcParent>
+            <IptcPrimary>false</IptcPrimary>
+        </IPTCRecord>
+        <IPTCRecord>
+            <Iptc>759</Iptc>
+            <IptcMedtop>20000639</IptcMedtop>
+            <IptcName>diplomati</IptcName>
+            <IptcParent>758</IptcParent>
+            <IptcPrimary>true</IptcPrimary>
+        </IPTCRecord>
+    </IPTCRecords>
+    <headline2 i:nil="true"/>
+    <Language i:nil="true"/>
+</RBNews>
