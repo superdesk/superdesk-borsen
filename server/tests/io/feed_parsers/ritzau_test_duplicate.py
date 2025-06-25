@@ -227,3 +227,32 @@ class RitzauDuplicateHandlingTestCase(BaseRitzauTestCase):
             self.parser.is_similar(self.parser.strip_suffix("Headline - NY"), self.parser.strip_suffix("Headline"))
         )
         self.assertFalse(self.parser.is_similar("Sports update", "Weather forecast"))
+
+    def test_duplicate_detection_by_replaces_news_id(self):
+        """Test that item with <Replaces><NewsID> updates the existing one."""
+
+        existing_id = "existing-replaces-id"
+        replaces_guid = "98644e18-f379-468b-812d-9f389c542391"
+
+        ingest_item = {
+            "_id": existing_id,
+            "guid": replaces_guid,
+            "headline": "Older headline version",
+            "body_html": "Old content",
+            "_created": datetime.utcnow() - timedelta(hours=1),
+            "versioncreated": datetime.utcnow() - timedelta(hours=1),
+        }
+
+        superdesk.get_resource_service("ingest").post([ingest_item])
+
+        try:
+            # Parse the XML with <Replaces>
+            item = self._parse_fixture("case1_file5.xml")
+
+            self.assertIsNotNone(item)
+            self.assertIn("_id", item)
+            self.assertEqual(item["_id"], existing_id)
+            self.assertEqual(item["guid"], replaces_guid)
+
+        finally:
+            self.app.data.remove("ingest", {"_id": existing_id})

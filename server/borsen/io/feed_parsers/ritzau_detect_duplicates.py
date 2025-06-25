@@ -45,6 +45,18 @@ class RitzauFeedParserDetectDuplicates(BaseRitzauFeedParser):
     def do_mapping(self, item, item_xml, setting_param_name=None, namespaces=None):
         item = super().do_mapping(item, item_xml, setting_param_name, namespaces)
 
+        # Handle Replaces tag first (explicit updates)
+        replaces = item_xml.find("Replaces")
+        if replaces is not None:
+            related_news = replaces.find("RelatedNews")
+            if related_news is not None:
+                replaced_guid = related_news.find("NewsID").text
+                if replaced_guid:
+                    existing = self.find_by_guid(replaced_guid)
+                    if existing:
+                        self.update_existing_item(item, existing)
+                        return item
+
         # Add Default Category:
         categories_cv_items = self.get_cv_items("categories")
         default_section = [section for section in categories_cv_items if str(section["qcode"]) == "generelt"]
