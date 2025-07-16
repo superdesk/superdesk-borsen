@@ -123,6 +123,7 @@ module.exports = function() {
             customAuthoringTopbar: {
                 toDesk: true,
                 publish: true,
+                publishAndContinue: true,
             },
             validatePointOfInterestForImages: true,
             editorHighlights: true,
@@ -133,9 +134,6 @@ module.exports = function() {
             autorefreshContent: true,
             planning: true,
 	    nestedItemsInOutputStage: true,
-            customAuthoringTopbar: {
-                toDesk: true,
-            },
         },
 
         item_profile: { change_profile: 1 },
