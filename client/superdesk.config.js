@@ -121,7 +121,7 @@ module.exports = function() {
             editorHighlights: true,
             noPublishOnAuthoringDesk: true,
             customAuthoringTopbar: {
-                toDesk: true,
+                toDesk: false,
                 publish: true,
                 publishAndContinue: true,
             },
