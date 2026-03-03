@@ -19,11 +19,23 @@ class BorsenNINJSFormatter(NINJSFormatter):
         self.format_type = self.type
 
     def _transform_to_ninjs(self, article, subscriber, recursive=True):
-        # Keep this intentionally minimal: only `title` and `guid`.
-        title = article.get("headline") or article.get("title") or ""
-        guid = article.get("guid") or ""
+        """Return a trimmed-down NINJS dict with just the fields Børsen needs."""
+        base_ninjs = super()._transform_to_ninjs(article, subscriber, recursive=recursive)
 
-        return {
-            "title": title,
-            "guid": str(guid) if guid is not None else "",
-        }
+        wanted_keys = [
+            "guid",
+            "version",
+            "type",
+            "versioncreated",
+            "language",
+            "headline",
+            "urgency",
+            "pubstatus",
+            "firstcreated",
+            "firstpublished",
+            "source",
+            "priority",
+            "service",
+        ]
+
+        return {key: base_ninjs[key] for key in wanted_keys if key in base_ninjs}
