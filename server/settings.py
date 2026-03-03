@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     "planning",
     "superdesk.auth.saml",
     "borsen.io",
+    "borsen.publish",
 ]
 
 PLANNING_EVENT_TEMPLATES_ENABLED = True
