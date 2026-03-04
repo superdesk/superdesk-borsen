@@ -30,7 +30,9 @@ class BorsenNinjsFormatterTest(TestCase):
         article = {
             ITEM_TYPE: CONTENT_TYPE.TEXT,
             "guid": EXPECTED_NINJS["guid"],
-            "version": int(EXPECTED_NINJS["version"]),
+            # NINJSFormatter reads version from config.VERSION (correction_sequence),
+            # so set that to match the expected "version" field.
+            "correction_sequence": int(EXPECTED_NINJS["version"]),
             "versioncreated": EXPECTED_NINJS["versioncreated"],
             "language": EXPECTED_NINJS["language"],
             "headline": EXPECTED_NINJS["headline"],
