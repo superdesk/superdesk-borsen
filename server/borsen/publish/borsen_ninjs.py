@@ -11,7 +11,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
     - guid
     """
 
-    name = "borsen ninjs"
+    name = "Børsen NINJS"
     type = "borsen_ninjs"
 
     def __init__(self):
