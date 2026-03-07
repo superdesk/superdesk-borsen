@@ -36,6 +36,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
             "source",
             "priority",
             "service",
+            "evolvedfrom",
         ]
 
         return {key: base_ninjs[key] for key in wanted_keys if key in base_ninjs}

@@ -49,6 +49,7 @@ class BorsenNinjsFormatterTest(TestCase):
                     "name": EXPECTED_NINJS["service"][0]["name"],
                 }
             ],
+            "evolvedfrom": EXPECTED_NINJS["evolvedfrom"],
         }
         if overrides:
             article.update(overrides)
