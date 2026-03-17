@@ -8,7 +8,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
     Output is a trimmed subset of the base NINJS output.
     """
 
-    name = "borsen ninjs"
+    name = "Borsen NINJS"
     type = "borsen_ninjs"
 
     def __init__(self):
@@ -36,9 +36,15 @@ class BorsenNINJSFormatter(NINJSFormatter):
             "evolvedfrom",
         ]
 
-        ninjs = {key: base_ninjs[key] for key in wanted_keys if key in base_ninjs}
+        def _is_empty(value):
+            return value is None or value == "" or value == [] or value == {}
 
-        # Keep output stable for downstream consumers: always include evolvedfrom.
-        ninjs.setdefault("evolvedfrom", "")
+        ninjs = {}
+        for key in wanted_keys:
+            if key not in base_ninjs:
+                continue
+            if _is_empty(base_ninjs.get(key)):
+                continue
+            ninjs[key] = base_ninjs[key]
 
         return ninjs
