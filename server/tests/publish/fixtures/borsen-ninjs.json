@@ -1,0 +1,20 @@
+{
+  "guid": "3830be9b-18d2-44f6-9e63-51fbf3a6557e",
+  "version": "1",
+  "type": "text",
+  "versioncreated": "2026-03-03T18:43:44+0000",
+  "language": "en",
+  "headline": "Test title",
+  "urgency": 3,
+  "pubstatus": "usable",
+  "firstcreated": "2026-03-03T18:43:13+0000",
+  "firstpublished": "2026-03-03T18:43:44+0000",
+  "source": "SF",
+  "priority": 1,
+  "service": [
+    {
+      "code": "category1",
+      "name": "Category 1"
+    }
+  ]
+}
