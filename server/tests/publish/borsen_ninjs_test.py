@@ -3,6 +3,7 @@ import pathlib
 from flask import json
 from unittest import mock
 
+from eve.utils import config
 from superdesk.metadata.item import ITEM_TYPE, CONTENT_TYPE
 from superdesk.tests import TestCase
 
@@ -30,9 +31,8 @@ class BorsenNinjsFormatterTest(TestCase):
         article = {
             ITEM_TYPE: CONTENT_TYPE.TEXT,
             "guid": EXPECTED_NINJS["guid"],
-            # NINJSFormatter reads version from config.VERSION (correction_sequence),
-            # so set that to match the expected "version" field.
-            "correction_sequence": int(EXPECTED_NINJS["version"]),
+            # NINJSFormatter reads version from eve's VERSION field (usually "_version")
+            config.VERSION: int(EXPECTED_NINJS["version"]),
             "versioncreated": EXPECTED_NINJS["versioncreated"],
             "language": EXPECTED_NINJS["language"],
             "headline": EXPECTED_NINJS["headline"],
@@ -49,8 +49,12 @@ class BorsenNinjsFormatterTest(TestCase):
                     "name": EXPECTED_NINJS["service"][0]["name"],
                 }
             ],
-            "evolvedfrom": EXPECTED_NINJS["evolvedfrom"],
         }
+
+        # Base NINJS sets "evolvedfrom" from "rewrite_of". Only set it if fixture has it.
+        if EXPECTED_NINJS.get("evolvedfrom"):
+            article["rewrite_of"] = EXPECTED_NINJS["evolvedfrom"]
+
         if overrides:
             article.update(overrides)
         return article

@@ -5,13 +5,10 @@ class BorsenNINJSFormatter(NINJSFormatter):
     """Borsen NINJS formatter
 
     Minimal NINJS output required by Børsen.
-
-    Output contains only:
-    - title
-    - guid
+    Output is a trimmed subset of the base NINJS output.
     """
 
-    name = "Børsen NINJS"
+    name = "borsen ninjs"
     type = "borsen_ninjs"
 
     def __init__(self):
@@ -39,4 +36,9 @@ class BorsenNINJSFormatter(NINJSFormatter):
             "evolvedfrom",
         ]
 
-        return {key: base_ninjs[key] for key in wanted_keys if key in base_ninjs}
+        ninjs = {key: base_ninjs[key] for key in wanted_keys if key in base_ninjs}
+
+        # Keep output stable for downstream consumers: always include evolvedfrom.
+        ninjs.setdefault("evolvedfrom", "")
+
+        return ninjs
