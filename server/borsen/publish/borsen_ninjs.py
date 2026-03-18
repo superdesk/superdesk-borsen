@@ -41,10 +41,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
 
         ninjs = {}
         for key in wanted_keys:
-            if key not in base_ninjs:
-                continue
-            if _is_empty(base_ninjs.get(key)):
-                continue
-            ninjs[key] = base_ninjs[key]
+            if base_ninjs.get(key):
+                 ninjs[key] = base_ninjs[key]
 
         return ninjs
