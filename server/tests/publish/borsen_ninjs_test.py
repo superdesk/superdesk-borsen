@@ -31,6 +31,7 @@ class BorsenNinjsFormatterTest(TestCase):
         article = {
             ITEM_TYPE: CONTENT_TYPE.TEXT,
             "guid": EXPECTED_NINJS["guid"],
+            # NINJSFormatter reads version from eve's VERSION field (usually "_version")
             config.VERSION: int(EXPECTED_NINJS["version"]),
             "versioncreated": EXPECTED_NINJS["versioncreated"],
             "language": EXPECTED_NINJS["language"],
@@ -41,13 +42,18 @@ class BorsenNinjsFormatterTest(TestCase):
             "firstpublished": EXPECTED_NINJS["firstpublished"],
             "source": EXPECTED_NINJS["source"],
             "priority": EXPECTED_NINJS["priority"],
-            # service is populated from anpa_category
+            # service is populated from anpa_category via _get_service/format_cv_item
             "anpa_category": [
                 {
                     "qcode": EXPECTED_NINJS["service"][0]["code"],
                     "name": EXPECTED_NINJS["service"][0]["name"],
                 }
             ],
+            # Extra fields that must not be in the Børsen-trimmed NINJS output.
+            "ingest_provider": "test",
+            "slugline": "test",
+            "byline": "test",
+            "body_html": "<p>test</p>",
         }
 
         # Base NINJS sets "evolvedfrom" from "rewrite_of". Only set it if fixture has it.

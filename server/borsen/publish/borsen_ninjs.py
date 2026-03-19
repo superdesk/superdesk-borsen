@@ -4,7 +4,7 @@ from superdesk.publish.formatters.ninjs_formatter import NINJSFormatter
 class BorsenNINJSFormatter(NINJSFormatter):
     """Borsen NINJS formatter
 
-    Minimal NINJS output for Børsen.
+    Minimal NINJS output required by Børsen.
     Output is a trimmed subset of the base NINJS output.
     """
 
@@ -16,6 +16,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
         self.format_type = self.type
 
     def _transform_to_ninjs(self, article, subscriber, recursive=True):
+        """Return a trimmed-down NINJS dict with just the fields Børsen needs."""
         base_ninjs = super()._transform_to_ninjs(article, subscriber, recursive=recursive)
 
         wanted_keys = [
@@ -40,10 +41,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
 
         ninjs = {}
         for key in wanted_keys:
-            if key not in base_ninjs:
-                continue
-            if _is_empty(base_ninjs.get(key)):
-                continue
-            ninjs[key] = base_ninjs[key]
+            if base_ninjs.get(key):
+                ninjs[key] = base_ninjs[key]
 
         return ninjs
