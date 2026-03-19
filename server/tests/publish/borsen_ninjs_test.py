@@ -49,6 +49,11 @@ class BorsenNinjsFormatterTest(TestCase):
                     "name": EXPECTED_NINJS["service"][0]["name"],
                 }
             ],
+            # Extra fields that must not be in the Børsen-trimmed NINJS output.
+            "ingest_provider": "test",
+            "slugline": "test",
+            "byline": "test",
+            "body_html": "<p>test</p>",
         }
 
         # Base NINJS sets "evolvedfrom" from "rewrite_of". Only set it if fixture has it.
@@ -67,19 +72,3 @@ class BorsenNinjsFormatterTest(TestCase):
     def test_borsen_ninjs_matches_fixture(self):
         ninjs = self._format()
         self.assertEqual(ninjs, EXPECTED_NINJS)
-
-    def test_borsen_ninjs_filters_out_additional_fields(self):
-        ninjs = self._format(
-            overrides={
-                "ingest_provider": "test",
-                "slugline": "should-not-leak",
-                "byline": "should-not-leak",
-                "body_html": "<p>should-not-leak</p>",
-            }
-        )
-
-        # Explicitly assert a few common non-Børsen fields never leak.
-        self.assertNotIn("ingest_provider", ninjs)
-        self.assertNotIn("slugline", ninjs)
-        self.assertNotIn("byline", ninjs)
-        self.assertNotIn("body_html", ninjs)
