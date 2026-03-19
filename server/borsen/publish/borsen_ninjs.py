@@ -19,7 +19,7 @@ class BorsenNINJSFormatter(NINJSFormatter):
         """Return a trimmed-down NINJS dict with just the fields Børsen needs."""
         base_ninjs = super()._transform_to_ninjs(article, subscriber, recursive=recursive)
 
-        wanted_keys = [
+        wanted_fields = {
             "guid",
             "version",
             "type",
@@ -34,14 +34,6 @@ class BorsenNINJSFormatter(NINJSFormatter):
             "priority",
             "service",
             "evolvedfrom",
-        ]
+        }
 
-        def _is_empty(value):
-            return value is None or value == "" or value == [] or value == {}
-
-        ninjs = {}
-        for key in wanted_keys:
-            if base_ninjs.get(key):
-                ninjs[key] = base_ninjs[key]
-
-        return ninjs
+        return {field: base_ninjs[field] for field in wanted_fields if base_ninjs.get(field)}
