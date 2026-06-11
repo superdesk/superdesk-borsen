@@ -140,10 +140,7 @@ module.exports = function() {
             planning: true,
             autorefreshContent: true,
             planning: true,
-	    nestedItemsInOutputStage: true,
-            customAuthoringTopbar: {
-                toDesk: true,
-            },
+            nestedItemsInOutputStage: true,
         },
 
         item_profile: { change_profile: 1 },
