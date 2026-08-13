@@ -11,6 +11,7 @@
 
 from pathlib import Path
 from superdesk.default_settings import strtobool, env
+from content_api.app.settings import CONTENTAPI_INSTALLED_APPS
 
 ABS_PATH = str(Path(__file__).resolve().parent)
 
@@ -25,6 +26,9 @@ INSTALLED_APPS = [
     "borsen.io",
     "borsen.publish",
 ]
+
+# must run after the core modules so that DOMAIN is populated
+CONTENTAPI_INSTALLED_APPS = CONTENTAPI_INSTALLED_APPS + ["borsen.content_api"]
 
 PLANNING_EVENT_TEMPLATES_ENABLED = True
 
