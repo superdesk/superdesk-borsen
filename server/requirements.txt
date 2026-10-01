@@ -115,7 +115,7 @@ flask-script==2.0.6
     # via superdesk-core
 future==1.0.0
     # via python-twitter
-gunicorn==23.0.0
+gunicorn==26.2.0
     # via -r requirements.in
 hachoir==3.3.0
     # via superdesk-core
@@ -177,8 +177,6 @@ oauthlib==3.3.1
     # via requests-oauthlib
 orderly-set==5.5.0
     # via deepdiff
-packaging==25.0
-    # via gunicorn
 pillow==11.1.0
     # via
     #   reportlab
